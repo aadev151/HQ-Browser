@@ -1,0 +1,19 @@
+body {
+			background-image: url('Harley Quinn.jpg');
+			background-position: center;
+  		background-repeat: no-repeat;
+			background-size: cover;
+			color: #ffffff;
+}
+h1 {
+  font-family: helvetica;
+  font-weight: normal;
+  font-size: 55px;
+}
+.arrow {
+  margin-right: 10%;
+  width: 20%;
+}
+.center {
+  text-align: center;
+}

@@ -1,0 +1,152 @@
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>index</title>
+	<style>
+		body {
+			background-image: url('Harley Quinn.jpg');
+			background-position: center;
+  		background-repeat: no-repeat;
+			background-size: cover;
+			color: #ffffff;
+		}
+		h1 {
+			font-family: helvetica;
+			font-weight: normal;
+			font-size: 55px;
+		}
+		.arrow {
+			margin-right: 10%;
+			width: 235px;
+		}
+    .download {
+      border: solid white 2px;
+      padding: 5px;
+      color: white;
+      font-size: 23px;
+    }
+	</style>
+</head>
+<body>
+	<center>
+		<h1>HQ Browser</h1>
+		<img class="arrow" src="arrow.png">
+		<br>
+
+		<form action="http://alexxx.pythonanywhere.com/search" method="get">
+			<input autofocus type="text" style="font-size: 25px; text-align: center; background: transparent; color: white; width: 60%;" oninput="chooseMethod()" id="search" name="q">
+			<br>
+			<input type="radio" name="searcher" id="google" value="Google" onclick="document.getElementById('alright').innerHTML = 'The search will be done in Google. To hide the list, tap <button onclick=\'methods()\'>here</button>';" checked hidden>
+			<label hidden id="googleLabel" for="google">Google</label>			
+			<br>
+			<input type="radio" name="searcher" id="mailru" value="MailRu" onclick="document.getElementById('alright').innerHTML = 'The search will be done in Mail.Ru. To hide the list, tap <button onclick=\'methods()\'>here</button>';" hidden>
+			<label hidden id="mailruLabel" for="duckduckgo">Mail.ru</label>			
+			<br>
+			<input type="radio" name="searcher" id="yandex" value="Yandex" onclick="document.getElementById('alright').innerHTML = 'The search will be done in Yandex. To hide the list, tap <button onclick=\'methods()\'>here</button>';" hidden>
+			<label hidden id="yandexLabel" for="yandex">Yandex</label>
+			<br>
+			<input type="radio" name="searcher" id="bing" value="Bing" onclick="document.getElementById('alright').innerHTML = 'The search will be done in Bing. To hide the list, tap <button onclick=\'methods()\'>here</button>';" hidden>
+			<label hidden id="bingLabel" for="bing">Bing</label>
+			<br>
+			<input type="radio" name="searcher" id="yahoo" value="Yahoo" onclick="document.getElementById('alright').innerHTML = 'The search will be done in Yahoo!. To hide the list, tap <button onclick=\'methods()\'>here</button>';" hidden>
+			<label hidden id="yahooLabel" for="yahoo">Yahoo!</label>
+			<br>
+			<input type="radio" name="searcher" id="wikipedia" value="Wikipedia" onclick="document.getElementById('alright').innerHTML = 'The search will be done in Wikipedia. To hide the list, tap <button onclick=\'methods()\'>here</button>';" hidden>
+			<label hidden id="wikipediaLabel" for="yahoo">Wikipedia</label>
+			<br>
+			<input type="radio" name="searcher" id="aliexpress" value="Aliexpress" onclick="document.getElementById('alright').innerHTML = 'The search will be done in Aliexpress. To hide the list, tap <button onclick=\'methods()\'>here</button>';" hidden>
+			<label hidden id="aliexpressLabel" for="yahoo">Aliexpress</label>
+			<br>
+			<input type="submit" value="Search" id="searchSubmit" hidden>
+		</form>
+
+		<script>
+			function chooseMethod() {
+				if (document.getElementById("search").value.length >= 1) {
+					var s = "";
+
+					if (document.getElementById("google").checked) {
+						s = "Google";
+					} else if (document.getElementById("mailru").checked) {
+						s = "Mail.Ru";
+					} else if (document.getElementById("yandex").checked) {
+						s = "Yandex";
+					} else if (document.getElementById("bing").checked) {
+					  s = "Bing";
+					} else if (document.getElementById("yahoo").checked) {
+						s = "Yahoo!";
+					} else if (document.getElementById("wikipedia").checked) {
+						s = "Wikipedia";
+					} else if (document.getElementById("aliexpress").checked) {
+						s = "Aliexpress";
+					}
+					document.getElementById("alright").innerHTML = 'The search will be done in ' + s + '. If you want to change this, tap <button onclick="methods()">here</button>';
+				} else {
+					document.getElementById("alright").innerHTML = "";
+				}
+			}
+			function methods() {
+				var s = "";
+
+				if (document.getElementById("google").checked) {
+					s = "Google";
+				} else if (document.getElementById("mailru").checked) {
+					s = "Mail.Ru";
+				} else if (document.getElementById("yandex").checked) {
+					s = "Yandex";
+				} else if (document.getElementById("bing").checked) {
+					s = "Bing";
+				} else if (document.getElementById("yahoo").checked) {
+					s = "Yahoo!";
+				} else if (document.getElementById("wikipedia").checked) {
+					s = "Wikipedia";
+				} else if (document.getElementById("aliexpress").checked) {
+					s = "Aliexpress";
+				}
+
+				if (document.getElementById("google").hidden) {
+					document.getElementById("google").hidden = false;
+					document.getElementById("googleLabel").hidden = false;
+					document.getElementById("mailru").hidden = false;
+					document.getElementById("mailruLabel").hidden = false;
+					document.getElementById("yandex").hidden = false;
+					document.getElementById("yandexLabel").hidden = false;
+          			document.getElementById("bing").hidden = false;
+					document.getElementById("bingLabel").hidden = false;
+          			document.getElementById("yahoo").hidden = false;
+					document.getElementById("yahooLabel").hidden = false;
+          			document.getElementById("wikipedia").hidden = false;
+					document.getElementById("wikipediaLabel").hidden = false;
+          			document.getElementById("aliexpress").hidden = false;
+					document.getElementById("aliexpressLabel").hidden = false;
+					document.getElementById("searchSubmit").hidden = false;
+					document.getElementById("alright").innerHTML = 'The search will be done in ' + s + '. To hide the list, tap <button onclick="methods()">here</button>';
+				} else {
+					document.getElementById("google").hidden = true;
+					document.getElementById("googleLabel").hidden = true;
+					document.getElementById("mailru").hidden = true;
+					document.getElementById("mailruLabel").hidden = true;
+					document.getElementById("yandex").hidden = true;
+					document.getElementById("yandexLabel").hidden = true;
+          			document.getElementById("bing").hidden = true;
+					document.getElementById("bingLabel").hidden = true;
+          			document.getElementById("yahoo").hidden = true;
+					document.getElementById("yahooLabel").hidden = true;
+          			document.getElementById("wikipedia").hidden = true;
+					document.getElementById("wikipediaLabel").hidden = true;
+          			document.getElementById("aliexpress").hidden = true;
+					document.getElementById("aliexpressLabel").hidden = true;
+					document.getElementById("searchSubmit").hidden = true;
+					document.getElementById("alright").innerHTML = 'The search will be done in ' + s + '. If you want to change this, tap <button onclick="methods()">here</button>';
+				}
+			}
+			
+		</script>
+		<a id="alright">
+			 
+		</a>
+
+    <br><br><br><br><br><br>
+    <a class="download" href="https://www.icloud.com/shortcuts/e329e471d9424dccbd903be101e0a5a3" target="_blank">Download for iOS</a>
+	</center>
+</body>
